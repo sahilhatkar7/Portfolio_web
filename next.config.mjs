@@ -1,34 +1,22 @@
+
 /** @type {import('next').NextConfig} */
 
-
 const nextConfig = {
- // Generate a static website
- output: "export",
+  // Generate static website
+  output: "export",
 
+  // GitHub Pages repository path
+  basePath: process.env.GITHUB_ACTIONS
+    ? "/Portfolio_web"
+    : "",
 
- // GitHub repository name
- basePath: process.env.GITHUB_ACTIONS
-   ? "/portfolio_web"
-   : "",
+  // Generate static HTML files
+  trailingSlash: true,
 
-
- // Generate static HTML files
- trailingSlash: true,
-
-
- // Required for static image export
- images: {
-   unoptimized: true,
- },
-   turbopack: {
-   rules: {
-     "*.css": {
-       loaders: ["@tailwindcss/turbopack"],
-       as: "*.css",
-     },
-   },
- },
+  // Required for static image export
+  images: {
+    unoptimized: true,
+  },
 };
-
 
 export default nextConfig;
