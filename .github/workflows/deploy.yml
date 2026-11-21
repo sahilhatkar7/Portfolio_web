@@ -1,3 +1,4 @@
+
 name: Deploy Portfolio to GitHub Pages
 
 on:
@@ -35,6 +36,9 @@ jobs:
 
       - name: Build Next.js portfolio
         run: npm run build
+
+      - name: Add .nojekyll file
+        run: touch ./out/.nojekyll
 
       - name: Upload static website
         uses: actions/upload-pages-artifact@v3
